@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import './Sus.css'
+import image from './Sus Dance.gif'
 
 /**
  * A React component that represents the Sus page of the app.
@@ -11,6 +12,7 @@ const Sus = props => {
     <>
       <h1>Sus</h1>
       <p>you are sussy</p>
+      <div><p><img style={{}} src={image} alt="sus sus amogus" /></p></div>
     </>
   )
 }
