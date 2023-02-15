@@ -1,5 +1,3 @@
-import image from './Zoom Image.jpg'
-
 require('dotenv').config({ silent: true }) // load environmental variables from a hidden file named .env
 const express = require('express') // CommonJS import style!
 const morgan = require('morgan') // middleware for nice logging of incoming HTTP requests
@@ -80,26 +78,17 @@ app.post('/messages/save', async (req, res) => {
   }
 })
 
-app.post('/about-us', async (res) => {
+app.get('/about-us', async (req,res) => {
   // try to save the message to the database
-  try {
-    // const message = await Message.create({
-    //   name: req.body.name,
-    //   message: req.body.message,
-    // })
     return res.json({
-      title: 'About Us',
+      title: 'About Me!',
       text: 'Hello! I\'m Matthew Dong, a student at the NYU College of Arts and Science (CAS) pursuing a joint major in Computer Science and Data Science.I believe that the people we interact and work with are the core of how society as a whole makes progress.\nBy drawing from my experiences of working with people of a wide range of backgrounds, I hope to combine people and technology together in a way that can benefit everybody, no matter who they are.Feel free to contact me at matthew.dong@nyu.edu or connect with me on LinkedIn.\nI\'m looking forward to meeting all of you!', // return the message we just saved
-      image: {image},
-      status: 'all good',
+      image: './image.jpg',
+      alt: 'It\'s me!',
+      status: 'all good'      
     })
-  } catch (err) {
-    console.error(err)
-    return res.status(400).json({
-      error: err,
-      status: 'failed to send data',
-    })
-  }
 })
 // export the express app we created to make it available to other modules
 module.exports = app // CommonJS export style!
+
+app.use('/public', express.static('public'));
