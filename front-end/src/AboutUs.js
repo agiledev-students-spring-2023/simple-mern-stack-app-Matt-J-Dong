@@ -15,6 +15,8 @@ const AboutUs = props => {
   let [text, setText] = useState('')
   let [image, setImage] = useState('')
   let [alt, setAlt] = useState('')
+  let [height, setHeight] = useState('')
+  let [width, setWidth] = useState('')
   console.log(test)
   axios
       .get(`${process.env.REACT_APP_SERVER_HOSTNAME}/about-us`)
@@ -23,10 +25,14 @@ const AboutUs = props => {
         text = response.data.text
         image = response.data.image
         alt = response.data.alt
+        height = response.data.height
+        width = response.data.width
         setTitle(title)
         setText(text)
         setImage(image)
         setAlt(alt)
+        setHeight(height)
+        setWidth(width)
     })
       .catch(() => {return 'error'}
       )
@@ -34,7 +40,7 @@ const AboutUs = props => {
     <>
       <h1>{title}</h1>
       <p>{text}</p>
-      <div><p><img style={{width: "20%", height: "20%"}} src={`${image}`} alt={`${alt}`}/></p></div>
+      <div><p><img style={{width: `${width}`, height: `${height}`}} src={`${image}`} alt={`${alt}`}/></p></div>
       <p><Link to="/sus">.</Link></p>
     </>
   )

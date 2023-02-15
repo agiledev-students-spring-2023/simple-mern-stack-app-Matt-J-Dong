@@ -85,7 +85,9 @@ app.get('/about-us', async (req,res) => {
       text: 'Hello! I\'m Matthew Dong, a student at the NYU College of Arts and Science (CAS) pursuing a joint major in Computer Science and Data Science.I believe that the people we interact and work with are the core of how society as a whole makes progress.\nBy drawing from my experiences of working with people of a wide range of backgrounds, I hope to combine people and technology together in a way that can benefit everybody, no matter who they are.Feel free to contact me at matthew.dong@nyu.edu or connect with me on LinkedIn.\nI\'m looking forward to meeting all of you!', // return the message we just saved
       image: './image.jpg',
       alt: 'It\'s me!',
-      status: 'all good'      
+      status: 'all good',
+      width: '20%',
+      height: '20%' 
     })
 })
 // export the express app we created to make it available to other modules
